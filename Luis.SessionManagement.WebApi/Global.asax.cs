@@ -17,7 +17,9 @@ namespace Luis.SessionManagement.WebApi
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());                             
 
             // Deal with your dependencies here.
-            builder.RegisterType<SessionHandler>().As<ISessionHandler>().InstancePerLifetimeScope();            
+            builder.RegisterType<SessionHandler>().As<ISessionHandler>().InstancePerLifetimeScope();
+            builder.RegisterType<PresenterHandler>().As<IPresenterHandler>().InstancePerLifetimeScope();
+            builder.RegisterType<SessionPresenterHandler>().As<ISessionPresenterHandler>().InstancePerLifetimeScope();
             builder.Register(x => new SessionContext()).InstancePerLifetimeScope();
 
             var container = builder.Build();

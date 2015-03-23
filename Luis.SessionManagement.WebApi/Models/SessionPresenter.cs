@@ -11,9 +11,9 @@ namespace Luis.SessionManagement.WebApi.Models
         public int PresenterId { get; set; }
 
         // Navigation property
-        public Session Session { get; set; }
+        public virtual Session Session { get; set; }
         // Navigation property
-        public Presenter Presenter { get; set; }
+        public virtual Presenter Presenter { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
     }

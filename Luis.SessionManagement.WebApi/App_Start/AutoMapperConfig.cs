@@ -10,7 +10,8 @@ namespace Luis.SessionManagement.WebApi
             SessionMapperExtensions.Configure();
             AddressMappingExtensions.Configure();            
             PresenterMappingExtensions.Configure();
-
+            SessionPresenterMappingExtensions.Configure();
+                
             Mapper.AssertConfigurationIsValid();
         }        
     }

@@ -22,6 +22,6 @@ namespace Luis.SessionManagement.WebApi.Contracts
         public bool IsProctor { get; set; }
 
         [DataMember(EmitDefaultValue = false)]
-        public List<int> SessionIds { get; set; }
+        public List<SessionInfo> SessionInfoList { get; set; }
     }
 }

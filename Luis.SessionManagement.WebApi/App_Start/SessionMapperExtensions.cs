@@ -15,8 +15,23 @@ namespace Luis.SessionManagement.WebApi
                 .ForMember(dest => dest.SessionCategoryName, opt => opt.ResolveUsing(src => src.SessionCategory.Name))
                 .ForMember(dest => dest.SessionLevelId, opt => opt.ResolveUsing(src => src.SessionLevelId))
                 .ForMember(dest => dest.SessionLevelName, opt => opt.ResolveUsing(src => src.SessionLevel.Name))                
-                .ForMember(dest => dest.PresenterIds,
-                    opt => opt.ResolveUsing(src => src.SessionPresenters.Select(x => x.PresenterId).ToList()))
+                //.ForMember(dest => dest.PresenterInfoList,
+                //    opt => opt.ResolveUsing(src => src.SessionPresenters.Select(x => x.PresenterId).ToList()))
+                .ForMember(dest => dest.PresenterInfoList,
+                    opt => opt
+                        .ResolveUsing(src => src
+                            .SessionPresenters
+                            .Select(sessionPresenter => new C.PresenterInfo
+                            {
+                                FirstName =
+                                    sessionPresenter.Presenter != null ? sessionPresenter.Presenter.FirstName : null,
+                                Id = sessionPresenter.PresenterId,
+                                LastName =
+                                    sessionPresenter.Presenter != null ? sessionPresenter.Presenter.LastName : null
+                            })
+                            .ToList()))
+                .ForMember(dest => dest.SessionPresenters,
+                    opt => opt.ResolveUsing(src => src.SessionPresenters.ToContract()))
                 ;
             Mapper.CreateMap<C.Session, M.Session>()
                 .ForMember(dest => dest.SessionPresenters, opt => opt.Ignore())

@@ -11,8 +11,18 @@ namespace Luis.SessionManagement.WebApi
         public static void Configure()
         {
             Mapper.CreateMap<M.Presenter, C.Presenter>()
-                .ForMember(dest => dest.SessionIds,
-                    opt => opt.ResolveUsing(src => src.SessionPresenters.Select(x => x.SessionId).ToList()))
+                //.ForMember(dest => dest.SessionInfoList,
+                //    opt => opt.ResolveUsing(src => src.SessionPresenters.Select(x => x.SessionId).ToList()))
+                .ForMember(dest => dest.SessionInfoList,
+                    opt => opt
+                        .ResolveUsing(src => src
+                            .SessionPresenters
+                            .Select(sessionPresenter => new C.SessionInfo
+                            {
+                                Id = sessionPresenter.SessionId,
+                                Title = sessionPresenter.Session != null ? sessionPresenter.Session.Title : null
+                            })
+                            .ToList()))                            
                 ;
             Mapper.CreateMap<C.Presenter, M.Presenter>()
                 .ForMember(dest => dest.Address, opt => opt.Ignore())

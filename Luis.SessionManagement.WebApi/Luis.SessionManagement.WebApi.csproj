@@ -104,17 +104,25 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\PresenterMappingExtensions.cs" />
     <Compile Include="App_Start\SessionMapperExtensions.cs" />
+    <Compile Include="App_Start\SessionPresenterMappingExtensions.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Contracts\Address.cs" />
     <Compile Include="Contracts\Presenter.cs" />
+    <Compile Include="Contracts\PresenterInfo.cs" />
     <Compile Include="Contracts\Session.cs" />
     <Compile Include="Contracts\SessionCategory.cs" />
+    <Compile Include="Contracts\SessionInfo.cs" />
     <Compile Include="Contracts\SessionLevel.cs" />
+    <Compile Include="Contracts\SessionPresenter.cs" />
+    <Compile Include="Controllers\PresentersController.cs" />
+    <Compile Include="Controllers\SessionPresentersController.cs" />
     <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\PresenterHandler.cs" />
     <Compile Include="Handlers\SessionHandler.cs" />
+    <Compile Include="Handlers\SessionPresenterHandler.cs" />
     <Compile Include="Migrations\201503211637369_Initial.cs" />
     <Compile Include="Migrations\201503211637369_Initial.Designer.cs">
       <DependentUpon>201503211637369_Initial.cs</DependentUpon>

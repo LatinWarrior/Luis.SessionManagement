@@ -23,7 +23,7 @@ namespace Luis.SessionManagement.WebApi.Contracts
         public string Description { get; set; }
 
         [DataMember(EmitDefaultValue = false)]
-        public List<int> PresenterIds { get; set; }
+        public List<PresenterInfo> PresenterInfoList { get; set; }
 
         [DataMember(EmitDefaultValue = false)]
         public string SessionCategoryName { get; set; }
@@ -39,5 +39,8 @@ namespace Luis.SessionManagement.WebApi.Contracts
 
         [DataMember(EmitDefaultValue = false)]
         public int SessionLevelId { get; set; }
+
+        [DataMember(EmitDefaultValue = false)]
+        public List<SessionPresenter> SessionPresenters { get; set; }
     }
 }
