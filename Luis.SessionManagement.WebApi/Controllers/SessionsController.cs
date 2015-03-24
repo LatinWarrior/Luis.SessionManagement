@@ -10,7 +10,7 @@ using M = Luis.SessionManagement.WebApi.Models;
 
 namespace Luis.SessionManagement.WebApi.Controllers
 {
-    [EnableCors(origins: "http://localhost:8688", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:8688,http://localhost:1841", headers: "*", methods: "*")]
     public class SessionsController : ApiController
     {        
         private readonly ISessionHandler _sessionHandler;
